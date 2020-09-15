@@ -1,0 +1,26 @@
+plugins {
+	id "com.github.johnrengelman.shadow" version "6.0.0"
+	id "java"
+}
+
+group = "com.github.frcsty.toggle"
+version = "0.0.1-Alpha"
+
+repositories {
+	mavenCentral()
+	maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
+	maven { url = "https://oss.sonatype.org/content/groups/public/" }
+}
+
+dependencies {
+	compile "org.spigotmc:spigot:1.8.8"
+}
+
+processResources {
+	from(sourceSets.main.resources.srcDirs) {
+		filter org.apache.tools.ant.filters.ReplaceTokens, tokens: [version: version]
+	}
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
