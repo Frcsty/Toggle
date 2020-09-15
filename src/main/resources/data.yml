@@ -1,0 +1,4 @@
+users:
+  '<uuid>':
+    '<key>': true
+    '<key1>': false

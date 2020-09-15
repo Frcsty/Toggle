@@ -1,4 +1,4 @@
 name: Toggle
 version: @version@
 main: com.github.frcsty.toggle.TogglePlugin
-api-version: 1.13
+author: Frcsty

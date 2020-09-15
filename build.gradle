@@ -8,18 +8,26 @@ version = "0.0.1-Alpha"
 
 repositories {
 	mavenCentral()
-	maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
+	maven { url = "https://repo.destroystokyo.com/repository/maven-public/" }
 	maven { url = "https://oss.sonatype.org/content/groups/public/" }
 }
 
 dependencies {
-	compile "org.spigotmc:spigot:1.8.8"
+	implementation "me.mattstudios.utils:matt-framework:1.4"
+
+	compileOnly "com.destroystokyo.paper:paper-api:1.16.3-R0.1-SNAPSHOT"
 }
 
 processResources {
 	from(sourceSets.main.resources.srcDirs) {
 		filter org.apache.tools.ant.filters.ReplaceTokens, tokens: [version: version]
 	}
+}
+
+shadowJar {
+	relocate "me.mattstudios.mf", "${group}.libs.mf-utils"
+
+	archiveFileName.set("${project.name}-${project.version}")
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
